@@ -19,3 +19,27 @@ class Solution:
                (nums[index-1]<=nums[index+1]) or (nums[index]<=nums[index+2]) )
         return True
         
+
+"""
+    added another solution found in discussion that fits better my original idea
+    Runtime: 136 ms, faster than 45.90% of Python3 online submissions for X of a Kind in a Deck of Cards.
+    Memory Usage: 14.6 MB, less than 38.15% of Python3 online submissions for X of a Kind in a Deck of Cards.
+"""
+class Solution:
+    def hasGroupsSizeX(self, deck: List[int]) -> bool:
+        dic = {}
+        for i in deck:
+            if i in dic:
+                dic[i] += 1
+            else:
+                dic[i] = 1
+        m = min(dic.values())
+        if m <= 1:
+            return False
+        for i in range(m, 1, -1):
+            if sum([x%i for x in dic.values()]) == 0:
+                return True
+        return False
+         
+
+        
