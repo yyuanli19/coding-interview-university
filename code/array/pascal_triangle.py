@@ -33,6 +33,30 @@ class Solution:
                 row[j] += row[j-1]
             #print("i, row: ", i, row)
         return row
+
+"""
+another very similar version
+    Runtime: 20 ms, faster than 99% of Python3 online submissions for Pascal's Triangle.
+    Memory Usage: 14.2 MB, less than 81.34% of Python3 online submissions for Pascal's Triangle.
+"""
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        if numRows == 1:
+            return [[1]]
+        if numRows == 2:
+            return [[1], [1,1]]
+        rows = [[1], [1,1]]
+        for i in range(3, numRows+1):
+            row= []
+            for j in range(i):
+                if j-1<0 or j==i-1:
+                    row.append(1)
+                else:
+                    # print(i, j, rows[-1])
+                    row.append(rows[-1][j-1]+rows[-1][j])
+            rows.append(row)
+        return rows
+        
             
         
 
