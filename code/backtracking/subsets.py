@@ -66,7 +66,7 @@ class Solution:
             # subset.pop()
             
 """
-cascading solution
+c solution
 Runtime: 32 ms, faster than 78.25% of Python3 online submissions for Subsets.
 Memory Usage: 14.5 MB, less than 49.17% of Python3 online submissions for Subsets.
 """
